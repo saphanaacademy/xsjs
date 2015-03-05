@@ -1,9 +1,11 @@
-Description:
+Description:    An xsjs file with an MD5 JavaScript function are used to create an MD5 hash value on a salary field
+
+There is a script below (in step 1) to create the sample data that the xsjs utilizes.
 
 You will need an MD5 Hash javascript function to add to this xsjs file.
 One such function is from http://www.webtoolkit.info/javascript-md5.html#.VPdFyPnF_vE
-The function is not included directly in this text file for licensing issues.
-There is sample data in step 1 below that the xsjs utilizes. The MD5 is applied against the "salary" field in the myemployees table.
+The function is not included directly in this text file for licensing and or rights issues.
+
 Note that this is SAMPLE code and you should really verify the security and accuracy of any of this code.
 
 
@@ -38,6 +40,8 @@ INSERT INTO "DEVTEST"."MYEMPLOYEES" VALUES(10,'Peter','Mnt6',350000);
 ****************************************************
 *
 *   step 2 > create an MD5.xsjs file in your HANA application
+*   paste in your MD5 javascript in the placeholder below
+*   uncomment the tobj.salaryhash line and ensure to refence the correct javascript function
 *
 ****************************************************
 
@@ -50,7 +54,8 @@ var empId;
 
 //////////////////////////////////////////////////
 //
-// insert the MD5 javascript function below
+// insert an MD5 javascript function below
+// e.g. http://www.webtoolkit.info/javascript-md5.html#.VPdFyPnF_vE
 //
 /////////////////////////////////////////////////
 
@@ -78,7 +83,7 @@ if (empId > 0) {
         tobj.emp = rs.getString(2);
         tobj.role = rs.getString(3);
         tobj.salary = rs.getString(4);
-        tobj.salary = MD5(tobj.salary);
+        //tobj.salaryhash = MD5(tobj.salary);
         output.thisoutput.push(tobj); 
     }
     rs.close();
