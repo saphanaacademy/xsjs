@@ -67,8 +67,7 @@ if (empId > 0) {
     sqlstmt =  
         " SELECT EMPID, EMP, ROLE, SALARY"
                 + " FROM MYEMPLOYEES "
-                + " WHERE EMPID=?"
-                ; 
+                + " WHERE EMPID=?"; 
 
     var pstmt = conn.prepareStatement(sqlstmt);
     pstmt.setInt(1, empId);
